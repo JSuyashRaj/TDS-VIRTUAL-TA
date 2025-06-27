@@ -596,6 +596,14 @@ def parse_llm_response(response):
         }
 
 # Define API routes
+@app.get("/query")
+async def get_query_info():
+    return {
+        "message": "Please use a POST request to /query with a JSON body like { 'question': 'What is TDS?', 'image': null }"
+    }
+
+
+
 @app.post("/query")
 async def query_knowledge_base(request: QueryRequest):
     try:
